@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
+import moment from 'moment'
 import './custom.css'
 
 const TodoList = ({ date }) => {
@@ -38,7 +39,7 @@ const TodoList = ({ date }) => {
         notes,
       };
       try {
-        const response = await fetch('http://localhost:3000/todos', {
+        const response = await fetch('http://localhost:3001/api/post-todos', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -61,7 +62,7 @@ const TodoList = ({ date }) => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch('http://localhost:3000/todos');
+      const response = await fetch('http://localhost:3001/api/get-todos');
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -72,7 +73,7 @@ const TodoList = ({ date }) => {
   const handleDeleteTodo = async (index) => {
     try {
       const todoId = todos[index]._id;
-      await fetch(`http://localhost:3000/todos/${todoId}`, {
+      await fetch(`http://localhost:3001/api/todos/${todoId}`, {
         method: 'DELETE',
       });
       setTodos((prevTodos) => {
@@ -85,9 +86,13 @@ const TodoList = ({ date }) => {
     }
   };
 
+
+  
+ 
+
   return (
     <div className='todo-container'>
-      <h2>ToDo List for {date}</h2>
+      <h2>Lista de Tarefas para {date}</h2>
       <input
         type="text"
         value={inputValue}

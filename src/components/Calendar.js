@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import './custom.css'
+import './custom.css';
 
 const Calendar = ({ handleDateChange }) => {
-  const [date, setDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
 
   const handleChange = (event) => {
-    const selectedDate = event.target.value;
-    setDate(selectedDate);
-    handleDateChange(selectedDate);
+    const dateValue = event.target.value;
+    setSelectedDate(dateValue);
+    handleDateChange(dateValue);
   };
 
   return (
-    <div className='calendar-container'>
-      <h2>Calendar</h2>
-      <input type="date" value={date} onChange={handleChange} />
+    <div className="calendar-container">
+      <h2>Calendário</h2>
+      <input type="date" value={selectedDate} onChange={handleChange} />
     </div>
   );
 };

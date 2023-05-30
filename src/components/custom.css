@@ -66,4 +66,57 @@
   .todo-container button:hover {
     background-color: #0056b3;
   }
-  
+
+/* Estilos para o pop-up de detalhes */
+
+ /* Estilos para o componente TodoList */
+ .modal-container {
+  margin-bottom: 20px;
+}
+
+.modal-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal-container input[type="text"],
+.modal-container input[type="time"],
+.modal-container textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.modal-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-container li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f5f5f5;
+}
+
+.modal-container li span {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.modal-container button:hover {
+  background-color: #0056b3;
+}

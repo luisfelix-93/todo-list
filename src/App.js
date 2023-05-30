@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>ToDo List Calendar</h1>
+      <h1>Lista de Tarefas</h1>
       <Calendar date={selectedDate} handleDateChange={handleDateTodo} />
       {selectedDate && <TodoList date={selectedDate} />}
     </div>
