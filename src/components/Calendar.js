@@ -5,10 +5,11 @@ const Calendar = ({ handleDateChange }) => {
   const [selectedDate, setSelectedDate] = useState('');
 
   const handleChange = (event) => {
-    const dateValue = event.target.value;
-    setSelectedDate(dateValue);
-    handleDateChange(dateValue);
+    const selectedDate = event.target.value;
+    setSelectedDate(selectedDate);
+    handleDateChange(selectedDate);
   };
+  
 
   return (
     <div className="calendar-container">

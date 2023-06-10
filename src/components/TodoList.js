@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
-import moment from 'moment'
 import './custom.css'
 
 const TodoList = ({ date }) => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [startTime, setStartTime] = useState('');
+  const [timeSpent, setTimeSpent] = useState('');
   const [endTime, setEndTime] = useState('');
   const [notes, setNotes] = useState('');
   useEffect(() =>{
     fetchTodos();
   }, []);
 
+  const calculateTimeSpent = () => {
+    const start = new Date(`${date}T${startTime}`);
+    const end = new Date(`2000-01-01T${endTime}`);
+    const timeDifference = end - start;
+    const minutes = Math.floor(timeDifference / 60000);
+    setTimeSpent(minutes);
+  };
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -23,6 +30,7 @@ const TodoList = ({ date }) => {
 
   const handleEndTimeChange = (event) => {
     setEndTime(event.target.value);
+    calculateTimeSpent();
   };
 
   const handleNotesChange = (event) => {
@@ -35,7 +43,7 @@ const TodoList = ({ date }) => {
         text: inputValue,
         date,
         startTime,
-        endTime,
+        timeSpent,
         notes,
       };
       try {

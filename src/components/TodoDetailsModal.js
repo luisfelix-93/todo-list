@@ -15,7 +15,7 @@ const TodoDetailsModal = ({ todo, onClose }) => {
           <strong>Horário de início:</strong> {todo.startTime}
         </p>
         <p>
-          <strong>Horário de fim:</strong> {todo.endTime}
+          <strong>Tempo gasto:</strong> {todo.timeSpent}
         </p>
         <p>
           <strong>Observações:</strong> {todo.notes}
